@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_125734) do
+ActiveRecord::Schema.define(version: 2020_08_02_130131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 2020_08_02_125734) do
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_blogs_on_author_id"
+    t.index ["title"], name: "index_blogs_on_title", unique: true
   end
 
+  add_foreign_key "blogs", "authors"
 end
