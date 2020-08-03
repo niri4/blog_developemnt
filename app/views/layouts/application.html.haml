@@ -8,6 +8,8 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
     %p.notice= notice
     %p.alert= alert
+    - if author_signed_in?
+      %a{href: destroy_author_session_path, 'data-method' => 'delete'} Sign out
+    = yield

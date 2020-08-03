@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2020_08_02_130131) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
-    t.text "article"
-    t.boolean "status"
+    t.text "body"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id"

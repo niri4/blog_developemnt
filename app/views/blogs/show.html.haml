@@ -1,4 +1,8 @@
 %p#notice= notice
-= link_to 'Edit', edit_blog_path(@blog)
+= link_to 'Edit', edit_blog_path(@blog) if author_signed_in?
 |
 = link_to 'Back', blogs_path
+%h2
+  = @blog.title
+%p
+  = @blog.body

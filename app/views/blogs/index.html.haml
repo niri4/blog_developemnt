@@ -7,8 +7,10 @@
   %tbody
     - @blogs.each do |blog|
       %tr
+        %td= blog.title
         %td= link_to 'Show', blog
-        %td= link_to 'Edit', edit_blog_path(blog)
-        %td= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
+        - if author_signed_in?
+          %td= link_to 'Edit', edit_blog_path(blog)
+          %td= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Blog', new_blog_path
+= link_to 'New Blog', new_blog_path if author_signed_in?
