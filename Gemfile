@@ -7,6 +7,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'haml'
 gem 'haml-rails'
+gem 'ancestry'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

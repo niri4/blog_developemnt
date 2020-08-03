@@ -6,3 +6,10 @@
   = @blog.title
 %p
   = @blog.body
+
+%br
+%h2 Comments
+= nested_comments(@blog.comments.arrange)
+%br
+%h2 Add a comment:
+= render 'comments/form', parent_id: nil
