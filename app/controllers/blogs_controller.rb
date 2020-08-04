@@ -7,6 +7,12 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @root_comments = @blog.comments.roots.order('created_at DESC').page(params[:page] || 1)
+    if @root_comments.present?
+      @comments = Comment.fetch_childer_for_roots(@root_comments).arrange(order: 'created_at DESC')
+    else
+      @comments = []
+    end
   end
 
   def new

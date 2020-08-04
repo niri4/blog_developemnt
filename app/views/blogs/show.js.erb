@@ -1,0 +1,6 @@
+$('#comments-container').append("<%= j(nested_comments(@comments)) %>");
+<% if @root_comments.last_page? %>
+  $("#comments-load-more a").hide();
+<% else %>
+  $("#comments-load-more a").attr("href", "<%= blog_path(id: @blog.id, page: (@root_comments.current_page+1)) %>");
+<% end %>
