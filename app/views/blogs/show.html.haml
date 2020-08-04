@@ -12,8 +12,9 @@
 #comments-container
   = nested_comments(@comments)
 #comments-load-more
-  - unless @root_comments.last_page?
-    = link_to "Load more", blog_path(id: @blog.id, page: @root_comments.current_page+1), remote: true
+  - if @root_comments.present?
+    - unless @root_comments.last_page?
+      = link_to "Load more", blog_path(id: @blog.id, page: @root_comments.current_page+1), remote: true
 
 %br
 %h2 Add a comment:
